@@ -256,7 +256,7 @@ func TestManager_UpgradeExtensions(t *testing.T) {
 		`
 		[hello]: upgraded from old vers to new vers
 		[local]: local extensions can not be upgraded
-		[two]: upgraded from old vers to new vers
+		[  two]: upgraded from old vers to new vers
 		`,
 	), stdout.String())
 	assert.Equal(t, "", stderr.String())
@@ -293,7 +293,7 @@ func TestManager_UpgradeExtensions_DryRun(t *testing.T) {
 		`
  		[hello]: would have upgraded from 0 to 1
  		[local]: local extensions can not be upgraded
- 		[two]: would have upgraded from 2 to 3
+ 		[  two]: would have upgraded from 2 to 3
  		`,
 	), stdout.String())
 	assert.Equal(t, "", stderr.String())
