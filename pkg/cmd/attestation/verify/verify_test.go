@@ -415,7 +415,7 @@ func TestRunVerify(t *testing.T) {
 		opts.BundlePath = ""
 		opts.Owner = "sigstore"
 
-		require.Nil(t, runVerify(&opts))
+		require.NoError(t, runVerify(&opts))
 	})
 
 	t.Run("with owner which not matches SourceRepositoryOwnerURI", func(t *testing.T) {
@@ -499,6 +499,18 @@ func TestRunVerify(t *testing.T) {
 		customOpts.UseBundleFromRegistry = true
 
 		require.Nil(t, runVerify(&customOpts))
+	})
+
+	t.Run("with valid OCI artifact with UseBundleFromRegistry flag and unknown predicate type", func(t *testing.T) {
+		customOpts := publicGoodOpts
+		customOpts.ArtifactPath = "oci://ghcr.io/github/test"
+		customOpts.BundlePath = ""
+		customOpts.UseBundleFromRegistry = true
+		customOpts.PredicateType = "https://predicate.type"
+
+		err := runVerify(&customOpts)
+		require.Error(t, err)
+		require.ErrorContains(t, err, "no matching predicate found")
 	})
 
 	t.Run("with valid OCI artifact with UseBundleFromRegistry flag but no bundle return from registry", func(t *testing.T) {
