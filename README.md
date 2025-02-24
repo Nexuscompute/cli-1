@@ -129,12 +129,12 @@ Download packaged binaries from the [releases page][].
 
 Since version 2.50.0 `gh` has been producing [Build Provenance Attestation](https://github.blog/changelog/2024-06-25-artifact-attestations-is-generally-available/) enabling a cryptographically verifiable paper-trail back to the origin GitHub repository, git revision and build instructions used. The build provenance attestations are signed and relies on Public Good [Sigstore](https://www.sigstore.dev/) for PKI.
 
-There are two common ways to verify a downloaded release, depending if `gh` is aready installed or not. If `gh` is installed, it's trivial to verify a new release:
+There are two common ways to verify a downloaded release, depending if `gh` is already installed or not. If `gh` is installed, it's trivial to verify a new release:
 
 - **Option 1: Using `gh` if already installed:**
 
   ```shell
-  $ % gh at verify -R cli/cli gh_2.62.0_macOS_arm64.zip
+  $ gh at verify -R cli/cli gh_2.62.0_macOS_arm64.zip
   Loaded digest sha256:fdb77f31b8a6dd23c3fd858758d692a45f7fc76383e37d475bdcae038df92afc for file://gh_2.62.0_macOS_arm64.zip
   Loaded 1 attestation from GitHub API
   ✓ Verification succeeded!

@@ -27,6 +27,7 @@ const (
 	InProgress Status = "in_progress"
 	Requested  Status = "requested"
 	Waiting    Status = "waiting"
+	Pending    Status = "pending"
 
 	// Run conclusions
 	ActionRequired Conclusion = "action_required"
@@ -53,6 +54,7 @@ var AllStatuses = []string{
 	"in_progress",
 	"requested",
 	"waiting",
+	"pending",
 	"action_required",
 	"cancelled",
 	"failure",
@@ -273,7 +275,7 @@ var ErrMissingAnnotationsPermissions = errors.New("missing annotations permissio
 
 // GetAnnotations fetches annotations from the REST API.
 //
-// If the job has no annotations, an empy slice is returned.
+// If the job has no annotations, an empty slice is returned.
 // If the API returns a 403, a custom ErrMissingAnnotationsPermissions error is returned.
 //
 // When fine-grained PATs support checks:read permission, we can remove the need for this at the call sites.

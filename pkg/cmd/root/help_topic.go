@@ -43,7 +43,7 @@ var HelpTopics = []helpTopic{
 		short: "Environment variables that can be used with gh",
 		long: heredoc.Docf(`
 			%[1]sGH_TOKEN%[1]s, %[1]sGITHUB_TOKEN%[1]s (in order of precedence): an authentication token that will be used when
-			a command targets either github.com or a subdomain of ghe.com. Setting this avoids being prompted to
+			a command targets either <github.com> or a subdomain of <ghe.com>. Setting this avoids being prompted to
 			authenticate and takes precedence over previously stored credentials.
 
 			%[1]sGH_ENTERPRISE_TOKEN%[1]s, %[1]sGITHUB_ENTERPRISE_TOKEN%[1]s (in order of precedence): an authentication
@@ -86,9 +86,13 @@ var HelpTopics = []helpTopic{
 			available in the viewport. When the value is a percentage, it will be applied against
 			the number of columns available in the current viewport.
 
-			%[1]sGH_NO_UPDATE_NOTIFIER%[1]s: set to any value to disable update notifications. By default, gh
-			checks for new releases once every 24 hours and displays an upgrade notice on standard
-			error if a newer version was found.
+			%[1]sGH_NO_UPDATE_NOTIFIER%[1]s: set to any value to disable GitHub CLI update notifications.
+			When any command is executed, gh checks for new versions once every 24 hours.
+			If a newer version was found, an upgrade notice is displayed on standard error.
+
+			%[1]sGH_NO_EXTENSION_UPDATE_NOTIFIER%[1]s: set to any value to disable GitHub CLI extension update notifications.
+			When an extension is executed, gh checks for new versions for the executed extension once every 24 hours.
+			If a newer version was found, an upgrade notice is displayed on standard error.
 
 			%[1]sGH_CONFIG_DIR%[1]s: the directory where gh will store configuration files. If not specified,
 			the default value will be one of the following paths (in order of precedence):
